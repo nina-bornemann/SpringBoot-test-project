@@ -11,6 +11,8 @@ public class Message {
     private String message;
     private String id;
 
+    public Message() {}
+
     public Message(String name, String message, String id) {
         this.name = name;
         this.message = message;

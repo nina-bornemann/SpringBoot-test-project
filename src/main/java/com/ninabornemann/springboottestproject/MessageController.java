@@ -17,9 +17,14 @@ public class MessageController {
     }
 
     @PostMapping
-    public List<Message> addMessage(@RequestBody Message message) {
-        listOfMessages.add(message);
+    public List<Message> addMessage(@RequestBody List<Message> messages) {
+        listOfMessages.addAll(messages);
         return listOfMessages;
     }
 
+    @DeleteMapping("/{id}")
+    public List<Message> deleteMessage(@PathVariable String id) {
+        listOfMessages. removeIf(Message -> Message.getId().equals(id));
+        return listOfMessages;
+    }
 }
